@@ -1,7 +1,7 @@
 ---
 name: BrightCoders Issue Template
 about: BrightCoders standard issue template
-title: "[feature]"
+title: ''
 labels: ''
 assignees: ''
 
