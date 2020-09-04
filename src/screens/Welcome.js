@@ -9,68 +9,61 @@ import {
 } from 'react-native';
 import {Colors} from '../utils/Colors';
 
-const welcome = ({navigation}) => {
+const Welcome = ({navigation}) => {
   return (
     <SafeAreaView style={styles.welcomeScreenContainer}>
       <View style={styles.imageContainer}>
         <Image
-          source={require('../utils/example-covid.png')}
+          source={require('../assets/images/example-covid.png')}
           style={styles.imageLogo}
         />
       </View>
-      <View style={styles.elementsContainer}>
+      <View style={styles.titleContainer}>
         <Text style={styles.titleText}>Covid Tracker</Text>
-        {/* <Button
-        title="go privacy"
-        onPress={() => {
-          navigation.navigate('PrivacyPolicy');
-        }}
-      /> */}
-        <View style={styles.btnsContainer}>
-          <TouchableOpacity style={styles.button}>
-            <Text
-              style={styles.buttonText}
-              onPress={() => {
-                navigation.navigate('PrivacyPolicy');
-              }}>
-              Registro
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Iniciar Sesión</Text>
-          </TouchableOpacity>
-        </View>
+      </View>
+      <View style={styles.btnsContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate('PrivacyPolicy');
+          }}>
+          <Text style={styles.buttonText}>Registro</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            console.log('Hello World');
+          }}>
+          <Text style={styles.buttonText}>Iniciar Sesión</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
-export default welcome;
+export default Welcome;
 
 const styles = StyleSheet.create({
   welcomeScreenContainer: {
-    height: '100%',
     flex: 1,
-    alignItems: 'center',
     backgroundColor: Colors.white,
   },
 
   imageContainer: {
-    height: 300,
-    width: '80%',
+    flex: 1.8,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 15,
   },
 
   imageLogo: {
-    height: '90%',
-    width: '90%',
+    height: 265,
+    width: 265,
     resizeMode: 'stretch',
   },
 
-  elementsContainer: {
-    flex: 2,
-    width: '100%',
+  titleContainer: {
+    flex: 1.8,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -80,14 +73,16 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   btnsContainer: {
-    width: '100%',
+    flex: 1,
     alignItems: 'center',
+    marginBottom: 20,
   },
 
   button: {
     backgroundColor: Colors.btnsColor,
     height: 55,
     width: '85%',
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 25,
