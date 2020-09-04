@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text, Button} from 'react-native';
+import {SafeAreaView, Text, Button} from 'react-native';
 
 const privacyPolicy = ({navigation}) => {
   return (
