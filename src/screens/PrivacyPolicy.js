@@ -13,42 +13,40 @@ const privacyPolicy = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView style={styles.scrollContainer}>
-        <>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Política de privacidad</Text>
-          </View>
-          <View style={styles.paragraphsContainer}>
-            <Text style={styles.paragraphs}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus aliquid reprehenderit cumque repellendus doloremque
-              ea at velit ipsa, quo neque maiores sed sunt voluptate alias
-              laudantium atque illo impedit eos.
-            </Text>
-            <Text style={styles.paragraphs}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus aliquid reprehenderit cumque repellendus doloremque
-              ea at velit ipsa, quo neque maiores sed sunt voluptate alias
-              laudantium atque illo impedit eos.
-            </Text>
-            <Text style={styles.paragraphs}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus aliquid reprehenderit cumque repellendus doloremque
-              ea at velit ipsa, quo neque maiores sed sunt voluptate alias
-              laudantium atque illo impedit eos.
-            </Text>
-            <Text style={styles.paragraphs}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus aliquid reprehenderit cumque repellendus doloremque
-              ea at velit ipsa, quo neque maiores sed sunt voluptate alias
-              laudantium atque illo impedit eos.
-            </Text>
-            <TouchableOpacity
-              style={styles.btnAccept}
-              onPress={() => console.log('Accept')}>
-              <Text style={styles.textBtnAccept}>Aceptar</Text>
-            </TouchableOpacity>
-          </View>
-        </>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Política de privacidad</Text>
+        </View>
+        <View style={styles.paragraphsContainer}>
+          <Text style={styles.paragraphs}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus aliquid reprehenderit cumque repellendus doloremque ea
+            at velit ipsa, quo neque maiores sed sunt voluptate alias laudantium
+            atque illo impedit eos.
+          </Text>
+          <Text style={styles.paragraphs}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus aliquid reprehenderit cumque repellendus doloremque ea
+            at velit ipsa, quo neque maiores sed sunt voluptate alias laudantium
+            atque illo impedit eos.
+          </Text>
+          <Text style={styles.paragraphs}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus aliquid reprehenderit cumque repellendus doloremque ea
+            at velit ipsa, quo neque maiores sed sunt voluptate alias laudantium
+            atque illo impedit eos.
+          </Text>
+          <Text style={styles.paragraphs}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus aliquid reprehenderit cumque repellendus doloremque ea
+            at velit ipsa, quo neque maiores sed sunt voluptate alias laudantium
+            atque illo impedit eos.
+          </Text>
+          <TouchableOpacity
+            style={styles.btnAccept}
+            onPress={() => console.log('Accept')}>
+            <Text style={styles.textBtnAccept}>Aceptar</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
