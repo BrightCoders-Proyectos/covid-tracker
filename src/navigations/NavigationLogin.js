@@ -9,7 +9,11 @@ const Stack = createStackNavigator();
 const NavigationLogin = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen
+        name="Welcome"
+        component={Welcome}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="PrivacyPolicy"
         options={{

@@ -1,12 +1,3 @@
----
-name: BrightCoders Issue Template
-about: BrightCoders standard issue template
-title: ''
-labels: ''
-assignees: ''
-
----
-
 # REQUIREMENTS
 Write a detailed description for this issue, provide all necessary information so any member of the project understands
 
