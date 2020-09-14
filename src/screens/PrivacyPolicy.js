@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Colors} from '../utils/Colors';
 
-const privacyPolicy = () => {
+const privacyPolicy = ({navigation}) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView style={styles.scrollContainer}>
@@ -43,7 +43,7 @@ const privacyPolicy = () => {
           </Text>
           <TouchableOpacity
             style={styles.btnAccept}
-            onPress={() => console.log('Accept')}>
+            onPress={() => navigation.navigate('RegisterAccount')}>
             <Text style={styles.textBtnAccept}>Aceptar</Text>
           </TouchableOpacity>
         </View>
