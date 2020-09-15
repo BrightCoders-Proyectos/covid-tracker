@@ -4,72 +4,34 @@ import {
   View,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
+import {NEXT_MESSAGE} from '../utils/Constants';
+import EmailTxtInput from '../components/EmailTxtInput';
+import PassTxtInput from '../components/PassTxtInput';
+import PasswordRequirements from '../components/PasswordRequirements';
 
 const RegisterAccount = () => {
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.title}>Crea tu cuenta</Text>
         <View style={styles.formContainer}>
-          <View style={styles.inputsContainer}>
-            <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Correo electrónico</Text>
-              <Text style={[styles.titleText, styles.requiredText]}>
-                Requerido
-              </Text>
-            </View>
-            <TextInput style={styles.textInput} />
-          </View>
-          <View style={styles.inputsContainer}>
-            <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Clave</Text>
-              <Text style={[styles.titleText, styles.requiredText]}>
-                Requerido
-              </Text>
-            </View>
-            <TextInput style={styles.textInput} secureTextEntry={true} />
-          </View>
-          <View style={styles.requirementsContainer}>
-            <Text style={styles.textInfo}>La clave debe:</Text>
-            <View style={styles.unorderedListContainer}>
-              <Text style={styles.textInfo}>
-                <Text style={styles.dash}>-</Text> tener 8 o más caracteres
-              </Text>
-              <Text style={styles.textInfo}>
-                <Text style={styles.dash}>-</Text> contener por lo menos 1 letra
-                minúscula
-              </Text>
-              <Text style={styles.textInfo}>
-                <Text style={styles.dash}>-</Text> contener por lo menos 1 letra
-                mayúscula
-              </Text>
-              <Text style={styles.textInfo}>
-                <Text style={styles.dash}>-</Text> contener por lo menos 1
-                dígito
-              </Text>
-            </View>
-          </View>
-          <View style={styles.inputsContainer}>
-            <View style={styles.textContainer}>
-              <Text style={styles.titleText}>Escribe de nuevo la clave</Text>
-              <Text style={[styles.titleText, styles.requiredText]}>
-                Requerido
-              </Text>
-            </View>
-            <TextInput style={styles.textInput} secureTextEntry={true} />
-          </View>
+          <EmailTxtInput title="Correo electrónico" isRequired="Requerido" />
+          <PassTxtInput title="Clave" isRequired="Requerido" />
+          <PasswordRequirements />
+          <PassTxtInput
+            title="Escribe de nuevo la clave"
+            isRequired="Requerido"
+          />
           <TouchableOpacity
             style={styles.nextBtn}
             onPress={() => {
               console.log('Hello world');
             }}>
-            <Text style={styles.nextBtnText}>Siguiente</Text>
+            <Text style={styles.nextBtnText}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -90,48 +52,6 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex: 1,
-  },
-  inputsContainer: {
-    flex: 0.2,
-    justifyContent: 'center',
-    paddingHorizontal: 15,
-    marginBottom: 15,
-  },
-  textContainer: {
-    flex: 0.6,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  titleText: {
-    fontSize: 20,
-  },
-  requiredText: {
-    fontSize: 15,
-    color: Colors.textGray,
-    marginTop: 4,
-    paddingRight: 8,
-  },
-  textInput: {
-    marginTop: 5,
-    paddingLeft: 15,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: Colors.textGray,
-    borderRadius: 10,
-  },
-  requirementsContainer: {
-    flex: 1,
-    paddingHorizontal: 25,
-    marginBottom: 15,
-  },
-  textInfo: {
-    fontSize: 15,
-  },
-  unorderedListContainer: {
-    paddingHorizontal: 10,
-  },
-  dash: {
-    fontWeight: 'bold',
   },
   nextBtn: {
     flex: 2,
