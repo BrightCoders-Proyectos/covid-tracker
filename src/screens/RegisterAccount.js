@@ -33,7 +33,7 @@ const RegisterAccount = () => {
                 Requerido
               </Text>
             </View>
-            <TextInput style={styles.textInput} />
+            <TextInput style={styles.textInput} secureTextEntry={true} />
           </View>
           <View style={styles.requirementsContainer}>
             <Text style={styles.textInfo}>La clave debe:</Text>
@@ -62,7 +62,7 @@ const RegisterAccount = () => {
                 Requerido
               </Text>
             </View>
-            <TextInput style={styles.textInput} />
+            <TextInput style={styles.textInput} secureTextEntry={true} />
           </View>
           <TouchableOpacity
             style={styles.nextBtn}
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     marginTop: 5,
-    paddingLeft: 10,
+    paddingLeft: 15,
     borderWidth: 2,
     borderStyle: 'solid',
     borderColor: Colors.textGray,
