@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {PASS_REQUIREMENTS} from '../utils/Constants';
 
 const PasswordRequirements = () => {
   return (
@@ -7,18 +8,16 @@ const PasswordRequirements = () => {
       <Text style={styles.textInfo}>La clave debe:</Text>
       <View style={styles.unorderedListContainer}>
         <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> tener 8 o más caracteres
+          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.firstTerm}
         </Text>
         <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> contener por lo menos 1 letra
-          minúscula
+          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.secondTerm}
         </Text>
         <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> contener por lo menos 1 letra
-          mayúscula
+          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.thirdTerm}
         </Text>
         <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> contener por lo menos 1 dígito
+          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.fourthTerm}
         </Text>
       </View>
     </View>
