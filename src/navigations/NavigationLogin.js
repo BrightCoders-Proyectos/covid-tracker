@@ -4,6 +4,7 @@ import {Colors} from '../utils/Colors';
 import Welcome from '../screens/Welcome';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import RegisterAccount from '../screens/RegisterAccount';
+import ConfirmEmail from '../screens/ConfirmEmail';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,17 @@ const NavigationLogin = () => {
           headerTitleAlign: 'center',
         }}
         component={RegisterAccount}
+      />
+      <Stack.Screen
+        name="ConfirmEmail"
+        options={{
+          title: 'Paso 3 de 4',
+          headerStyle: {
+            backgroundColor: Colors.btnsColor,
+          },
+          headerTitleAlign: 'center',
+        }}
+        component={ConfirmEmail}
       />
     </Stack.Navigator>
   );
