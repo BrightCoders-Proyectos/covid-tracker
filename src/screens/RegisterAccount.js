@@ -37,7 +37,9 @@ const RegisterAccount = ({navigation}) => {
           <TouchableOpacity
             style={styles.nextBtn}
             onPress={() => {
-              navigation.navigate('ConfirmEmail');
+              navigation.navigate('ConfirmEmail', {
+                usersEmail: 'sent.email@domain.com',
+              });
             }}>
             <Text style={styles.nextBtnText}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>
