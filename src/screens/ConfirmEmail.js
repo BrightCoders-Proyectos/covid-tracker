@@ -2,23 +2,50 @@ import React from 'react';
 import {
   SafeAreaView,
   View,
+  ScrollView,
   Text,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import {Colors} from '../utils/Colors';
+import {NEXT_MESSAGE} from '../utils/Constants';
+import CodeConfirmTxtInput from '../components/CodeConfirmTxtInput';
 
-const ConfirmEmail = () => {
+const ConfirmEmail = ({route}) => {
+  const {usersEmail} = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Confirmación de correo</Text>
-      <View style={styles.instructionsContainer}>
+      <ScrollView>
+        <Text style={styles.title}>Confirmación de correo</Text>
         <Text style={styles.textInstruction}>
           Por favor ingresa el código enviado a{' '}
           <Text style={[styles.textInstruction, styles.userEmail]}>
-            owen@example.com
+            {usersEmail}
           </Text>
         </Text>
-      </View>
+        <View style={styles.inputsContainer}>
+          <CodeConfirmTxtInput />
+          <CodeConfirmTxtInput />
+          <CodeConfirmTxtInput />
+          <CodeConfirmTxtInput />
+        </View>
+        <View style={styles.requireNewCodeContainer}>
+          <Text style={styles.newCodeInstructions}>
+            ¿No recibiste el código? {'\n'} Revisa tu carpeta de correos no
+            deseados
+          </Text>
+          <TouchableOpacity
+            style={styles.sendNewCodeBtn}
+            onPress={() => console.log('new code')}>
+            <Text style={styles.sendNewCodeTxt}>Enviar código de nuevo</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity
+          style={styles.nextBtn}
+          onPress={() => console.log('almost finish')}>
+          <Text style={styles.nextMessageTxt}>{NEXT_MESSAGE}</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -34,16 +61,51 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     textAlign: 'center',
   },
-  instructionsContainer: {
-    flex: 0.5,
+  textInstruction: {
+    fontSize: 18,
+    textAlign: 'center',
     paddingHorizontal: 30,
   },
-  textInstruction: {
-    fontSize: 15,
-    textAlign: 'center',
-  },
   userEmail: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
+  },
+  inputsContainer: {
+    flex: 0.3,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
+    paddingVertical: 15,
+  },
+  requireNewCodeContainer: {
+    flex: 1,
+    paddingLeft: 35,
+    paddingVertical: 15,
+  },
+  newCodeInstructions: {
+    fontSize: 15,
+  },
+  sendNewCodeBtn: {
+    marginTop: 10,
+  },
+  sendNewCodeTxt: {
+    fontSize: 15,
+    color: Colors.btnsColor,
+    fontWeight: 'bold',
+  },
+  nextBtn: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 60,
+    marginHorizontal: '5%',
+    backgroundColor: Colors.btnsColor,
+    borderRadius: 60,
+  },
+  nextMessageTxt: {
+    color: Colors.white,
+    fontSize: 22,
+    marginVertical: 10,
   },
 });
