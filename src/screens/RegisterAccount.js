@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -12,24 +12,38 @@ import {NEXT_MESSAGE, IS_REQUIRED, REREQUEST_PASS} from '../utils/Constants';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
 import PasswordRequirements from '../components/PasswordRequirements';
 
+const initialState = {
+  email: '',
+  password: '',
+  validatePassword: '',
+};
+
 const RegisterAccount = () => {
+  const [data, setData] = useState(initialState);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.title}>Crea tu cuenta</Text>
         <View style={styles.formContainer}>
           <EmailPassTxtInput
+            id="email"
+            value={data.email}
             title="Correo electrónico"
             isRequired={IS_REQUIRED}
             password={false}
           />
           <EmailPassTxtInput
+            id="password"
+            value={data.password}
             title="Clave"
             isRequired={IS_REQUIRED}
             password={true}
           />
           <PasswordRequirements />
           <EmailPassTxtInput
+            id="validatePassword"
+            value={data.validatePassword}
             title={REREQUEST_PASS}
             isRequired={IS_REQUIRED}
             password={true}
