@@ -2,12 +2,17 @@ import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 import {Colors} from '../utils/Colors';
 
-const CodeConfirmTxtInput = () => {
+const CodeConfirmTxtInput = (props) => {
   return (
     <TextInput
+      id={props.id}
+      value={props.value}
       style={styles.codeTxtInput}
       keyboardType="numeric"
       maxLength={1}
+      onChangeText={(value) =>
+        props.onChangeText({number: value, id: props.id})
+      }
     />
   );
 };
