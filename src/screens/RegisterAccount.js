@@ -21,6 +21,16 @@ const initialState = {
 const RegisterAccount = () => {
   const [data, setData] = useState(initialState);
 
+  const handleOnChange = ({email, password, validatePassword, id}) => {
+    setData({
+      ...data,
+      email: email,
+      password: password,
+      validatePassword: validatePassword,
+    });
+    console.log(email, password, validatePassword, id);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -32,6 +42,7 @@ const RegisterAccount = () => {
             title="Correo electrónico"
             isRequired={IS_REQUIRED}
             password={false}
+            onChangeText={handleOnChange}
           />
           <EmailPassTxtInput
             id="password"
@@ -39,6 +50,7 @@ const RegisterAccount = () => {
             title="Clave"
             isRequired={IS_REQUIRED}
             password={true}
+            onChangeText={handleOnChange}
           />
           <PasswordRequirements />
           <EmailPassTxtInput
@@ -47,6 +59,7 @@ const RegisterAccount = () => {
             title={REREQUEST_PASS}
             isRequired={IS_REQUIRED}
             password={true}
+            onChangeText={handleOnChange}
           />
           <TouchableOpacity
             style={styles.nextBtn}
