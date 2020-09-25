@@ -15,6 +15,13 @@ const EmailPassTxtInput = (props) => {
         id={props.id}
         style={styles.textInput}
         secureTextEntry={props.password}
+        keyboardType="email-address"
+        onChangeText={(value) =>
+          props.onChangeText({
+            email: value,
+            id: props.id,
+          })
+        }
       />
     </View>
   );
