@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
 import {NEXT_MESSAGE} from '../utils/Constants';
@@ -13,6 +14,68 @@ import CodeConfirmTxtInput from '../components/CodeConfirmTxtInput';
 
 const ConfirmEmail = ({route}) => {
   const {usersEmail} = route.params;
+  let codeConfirmation = ['1', '2', '3', '4'];
+  let auxiliarCounter = 0;
+  const [formData, setFormData] = useState({
+    fieldOne: '',
+    fieldTwo: '',
+    fieldThree: '',
+    fieldFour: '',
+  });
+
+  useEffect(() => {
+    setFormData({
+      fieldOne: '',
+      fieldTwo: '',
+      fieldThree: '',
+      fieldFour: '',
+    });
+  }, []);
+
+  const handleOnChange = ({number, id}) => {
+    setFormData({
+      ...formData,
+      [id]: number,
+    });
+  };
+
+  const resetForm = () => {
+    setFormData({
+      fieldOne: '',
+      fieldTwo: '',
+      fieldThree: '',
+      fieldFour: '',
+    });
+  };
+
+  const checkCodeConfirmation = () => {
+    if (
+      formData.fieldOne === '' &&
+      formData.fieldTwo === '' &&
+      formData.fieldThree === '' &&
+      formData.fieldFour === ''
+    ) {
+      Alert.alert('type all the code');
+    } else {
+      let userCodeConfirmation = [
+        formData.fieldOne,
+        formData.fieldTwo,
+        formData.fieldThree,
+        formData.fieldFour,
+      ];
+      for (let i = 0; i < 4; i++) {
+        if (codeConfirmation[i] === userCodeConfirmation[i]) {
+          auxiliarCounter++;
+        }
+      }
+      if (auxiliarCounter === 4) {
+        Alert.alert('Success');
+      } else {
+        Alert.alert('Your code is wrong');
+      }
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -24,10 +87,26 @@ const ConfirmEmail = ({route}) => {
           </Text>
         </Text>
         <View style={styles.inputsContainer}>
-          <CodeConfirmTxtInput />
-          <CodeConfirmTxtInput />
-          <CodeConfirmTxtInput />
-          <CodeConfirmTxtInput />
+          <CodeConfirmTxtInput
+            id="fieldOne"
+            value={formData.fieldOne}
+            onChangeText={handleOnChange}
+          />
+          <CodeConfirmTxtInput
+            id="fieldTwo"
+            value={formData.fieldTwo}
+            onChangeText={handleOnChange}
+          />
+          <CodeConfirmTxtInput
+            id="fieldThree"
+            value={formData.fieldThree}
+            onChangeText={handleOnChange}
+          />
+          <CodeConfirmTxtInput
+            id="fieldFour"
+            value={formData.fieldFour}
+            onChangeText={handleOnChange}
+          />
         </View>
         <View style={styles.requireNewCodeContainer}>
           <Text style={styles.newCodeInstructions}>
@@ -36,13 +115,13 @@ const ConfirmEmail = ({route}) => {
           </Text>
           <TouchableOpacity
             style={styles.sendNewCodeBtn}
-            onPress={() => console.log('new code')}>
+            onPress={() => resetForm()}>
             <Text style={styles.sendNewCodeTxt}>Enviar código de nuevo</Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity
           style={styles.nextBtn}
-          onPress={() => console.log('almost finish')}>
+          onPress={() => checkCodeConfirmation()}>
           <Text style={styles.nextMessageTxt}>{NEXT_MESSAGE}</Text>
         </TouchableOpacity>
       </ScrollView>
