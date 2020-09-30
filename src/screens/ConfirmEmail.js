@@ -50,25 +50,17 @@ const ConfirmEmail = ({route}) => {
   };
 
   const checkCodeConfirmation = () => {
-    if (
-      formData.fieldOne === '' &&
-      formData.fieldTwo === '' &&
-      formData.fieldThree === '' &&
-      formData.fieldFour === ''
-    ) {
-      Alert.alert('No has escrito el codigo ');
+    const typedCode = Object.values(formData);
+    const isEmpyInputs = typedCode.every((element) => element === '');
+    if (isEmpyInputs) {
+      Alert.alert('No has escrito el codigo');
     } else {
-      let userCodeConfirmation = [
-        formData.fieldOne,
-        formData.fieldTwo,
-        formData.fieldThree,
-        formData.fieldFour,
-      ];
-      for (let i = 0; i < 4; i++) {
-        if (codeConfirmation[i] === userCodeConfirmation[i]) {
+      let userCodeConfirmation = [...typedCode];
+      codeConfirmation.forEach((element) => {
+        if (codeConfirmation[element] === userCodeConfirmation[element]) {
           auxiliarCounter++;
         }
-      }
+      });
       if (auxiliarCounter === 4) {
         Alert.alert('Codigo correcto');
       } else {
