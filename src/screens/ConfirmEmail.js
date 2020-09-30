@@ -55,7 +55,7 @@ const ConfirmEmail = ({route}) => {
       formData.fieldThree === '' &&
       formData.fieldFour === ''
     ) {
-      Alert.alert('type all the code');
+      Alert.alert('No has escrito el codigo ');
     } else {
       let userCodeConfirmation = [
         formData.fieldOne,
@@ -69,9 +69,9 @@ const ConfirmEmail = ({route}) => {
         }
       }
       if (auxiliarCounter === 4) {
-        Alert.alert('Success');
+        Alert.alert('Codigo correcto');
       } else {
-        Alert.alert('Your code is wrong');
+        Alert.alert('El codigo es incorrecto');
       }
     }
   };
