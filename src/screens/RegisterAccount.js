@@ -43,7 +43,17 @@ const RegisterAccount = () => {
     ) {
       console.log('Faltan campos por llenar');
     } else {
-      alert('Campos completos');
+      validateEmail();
+    }
+  };
+
+  const validateEmail = () => {
+    if (emailRegex.test(data.email)) {
+      console.log('Correo valido');
+      setColor({emailInput: false});
+    } else {
+      setColor({emailInput: true});
+      console.log('Correo invalido');
     }
   };
 
