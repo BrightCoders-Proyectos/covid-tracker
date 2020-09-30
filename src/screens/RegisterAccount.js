@@ -42,18 +42,31 @@ const RegisterAccount = () => {
       data.validatePassword === ''
     ) {
       console.log('Faltan campos por llenar');
+      setColor({emailInput: true, passwordInput: true});
     } else {
       validateEmail();
     }
   };
-
   const validateEmail = () => {
     if (emailRegex.test(data.email)) {
       console.log('Correo valido');
       setColor({emailInput: false});
+      validatePasswords();
     } else {
       setColor({emailInput: true});
       console.log('Correo invalido');
+    }
+  };
+
+  const validatePasswords = () => {
+    if (
+      passwordRegex.test(data.password) ===
+      passwordRegex.test(data.validatePassword)
+    ) {
+      console.log('Exito!');
+    } else {
+      console.log('La contraseña es invalida o no coinciden');
+      setColor({passwordInput: true});
     }
   };
 
