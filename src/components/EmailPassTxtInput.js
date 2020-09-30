@@ -3,22 +3,23 @@ import {View, Text, TextInput, StyleSheet} from 'react-native';
 import {Colors} from '../utils/Colors';
 
 const EmailPassTxtInput = (props) => {
+  const wrong = props.isCorrect ? 'red' : Colors.textGray;
   return (
     <View style={styles.inputsContainer}>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>{props.title}</Text>
-        <Text style={[styles.titleText, styles.requiredText]}>
+        <Text style={[styles.titleText, styles.requiredText, {color: wrong}]}>
           {props.isRequired}
         </Text>
       </View>
       <TextInput
         id={props.id}
-        style={styles.textInput}
+        style={[styles.textInput, {borderColor: wrong}]}
         secureTextEntry={props.password}
         keyboardType="email-address"
         onChangeText={(value) =>
           props.onChangeText({
-            email: value,
+            value: value,
             id: props.id,
           })
         }
