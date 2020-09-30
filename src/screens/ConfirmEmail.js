@@ -14,6 +14,7 @@ import CodeConfirmTxtInput from '../components/CodeConfirmTxtInput';
 
 const ConfirmEmail = ({route}) => {
   const {usersEmail} = route.params;
+  const fieldId = ['fieldOne', 'fieldTwo', 'fieldThree', 'fieldFour'];
   let codeConfirmation = ['1', '2', '3', '4'];
   let auxiliarCounter = 0;
   const [formData, setFormData] = useState({
@@ -76,6 +77,17 @@ const ConfirmEmail = ({route}) => {
     }
   };
 
+  const inputs = fieldId.map((id) => {
+    return (
+      <CodeConfirmTxtInput
+        id={id}
+        key={id.toString()}
+        value={formData[id]}
+        onChangeText={handleOnChange}
+      />
+    );
+  });
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -86,28 +98,7 @@ const ConfirmEmail = ({route}) => {
             {usersEmail}
           </Text>
         </Text>
-        <View style={styles.inputsContainer}>
-          <CodeConfirmTxtInput
-            id="fieldOne"
-            value={formData.fieldOne}
-            onChangeText={handleOnChange}
-          />
-          <CodeConfirmTxtInput
-            id="fieldTwo"
-            value={formData.fieldTwo}
-            onChangeText={handleOnChange}
-          />
-          <CodeConfirmTxtInput
-            id="fieldThree"
-            value={formData.fieldThree}
-            onChangeText={handleOnChange}
-          />
-          <CodeConfirmTxtInput
-            id="fieldFour"
-            value={formData.fieldFour}
-            onChangeText={handleOnChange}
-          />
-        </View>
+        <View style={styles.inputsContainer}>{inputs}</View>
         <View style={styles.requireNewCodeContainer}>
           <Text style={styles.newCodeInstructions}>
             ¿No recibiste el código? {'\n'} Revisa tu carpeta de correos no
