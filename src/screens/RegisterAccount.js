@@ -20,6 +20,10 @@ const initialState = {
 
 const RegisterAccount = () => {
   const [data, setData] = useState(initialState);
+  const [color, setColor] = useState({
+    emailInput: false,
+    passwordInput: false,
+  });
 
   const handleOnChange = ({value, id}) => {
     setData({
@@ -49,6 +53,7 @@ const RegisterAccount = () => {
         <Text style={styles.title}>Crea tu cuenta</Text>
         <View style={styles.formContainer}>
           <EmailPassTxtInput
+            isCorrect={color.emailInput}
             id="email"
             value={data.email}
             title="Correo electrónico"
@@ -57,6 +62,7 @@ const RegisterAccount = () => {
             onChangeText={handleOnChange}
           />
           <EmailPassTxtInput
+            isCorrect={color.passwordInput}
             id="password"
             value={data.password}
             title="Clave"
@@ -66,6 +72,7 @@ const RegisterAccount = () => {
           />
           <PasswordRequirements />
           <EmailPassTxtInput
+            isCorrect={color.passwordInput}
             id="validatePassword"
             value={data.validatePassword}
             title={REREQUEST_PASS}
