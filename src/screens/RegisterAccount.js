@@ -21,14 +21,26 @@ const initialState = {
 const RegisterAccount = () => {
   const [data, setData] = useState(initialState);
 
-  const handleOnChange = ({email, password, validatePassword, id}) => {
+  const handleOnChange = ({value, id}) => {
     setData({
       ...data,
-      email: email,
-      password: password,
-      validatePassword: validatePassword,
+      [id]: value,
     });
-    console.log(email, password, validatePassword, id);
+  };
+
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const passwordRegex = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,50}$/;
+
+  const isEmptyInput = () => {
+    if (
+      data.email === '' ||
+      data.password === '' ||
+      data.validatePassword === ''
+    ) {
+      console.log('Faltan campos por llenar');
+    } else {
+      alert('Campos completos');
+    }
   };
 
   return (
@@ -64,7 +76,7 @@ const RegisterAccount = () => {
           <TouchableOpacity
             style={styles.nextBtn}
             onPress={() => {
-              console.log('Hello world');
+              isEmptyInput();
             }}>
             <Text style={styles.nextBtnText}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>
