@@ -12,7 +12,7 @@ import {Colors} from '../utils/Colors';
 import {NEXT_MESSAGE} from '../utils/Constants';
 import CodeConfirmTxtInput from '../components/CodeConfirmTxtInput';
 
-const ConfirmEmail = ({route}) => {
+const ConfirmEmail = ({route, navigation}) => {
   const {usersEmail} = route.params;
   const fieldId = ['fieldOne', 'fieldTwo', 'fieldThree', 'fieldFour'];
   let codeConfirmation = ['1', '2', '3', '4'];
@@ -63,6 +63,7 @@ const ConfirmEmail = ({route}) => {
       });
       if (auxiliarCounter === 4) {
         Alert.alert('Codigo correcto');
+        navigation.navigate('ContactInformation');
       } else {
         Alert.alert('El codigo es incorrecto');
       }
