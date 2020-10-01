@@ -12,7 +12,7 @@ import {NEXT_MESSAGE, IS_REQUIRED, REREQUEST_PASS} from '../utils/Constants';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
 import PasswordRequirements from '../components/PasswordRequirements';
 
-const RegisterAccount = () => {
+const RegisterAccount = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -37,7 +37,9 @@ const RegisterAccount = () => {
           <TouchableOpacity
             style={styles.nextBtn}
             onPress={() => {
-              console.log('Hello world');
+              navigation.navigate('ConfirmEmail', {
+                usersEmail: 'sent.email@domain.com',
+              });
             }}>
             <Text style={styles.nextBtnText}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>
