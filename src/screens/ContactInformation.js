@@ -7,7 +7,11 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import {NEXT_MESSAGE} from '../utils/Constants';
+import {
+  NEXT_MESSAGE,
+  CONTACT_INFO,
+  PREFERABLY_CELLPHONE,
+} from '../utils/Constants';
 import {Colors} from '../utils/Colors';
 import DescContactInfo from '../components/DescContactInfo';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
@@ -45,13 +49,11 @@ const ContactInformation = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.title}>Información de Contacto</Text>
+        <Text style={styles.title}>{CONTACT_INFO}</Text>
         <DescContactInfo />
         <View style={styles.formContainer}>
           {putInputs()}
-          <Text style={styles.suggestText}>
-            De preferencia un número de celular
-          </Text>
+          <Text style={styles.suggestText}>{PREFERABLY_CELLPHONE}</Text>
           <TouchableOpacity style={styles.btnNext}>
             <Text style={styles.txtNext}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>
