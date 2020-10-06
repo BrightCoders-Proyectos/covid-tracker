@@ -1,3 +1,4 @@
+/* eslint-disable jsx-quotes */
 import React from 'react';
 import {
   SafeAreaView,
@@ -27,8 +28,8 @@ const ContactInformation = () => {
             key={element}
             id={element}
             title={element}
-            isRequired="Recomendado"
-            keyboard="default"
+            isRequired='Recomendado'
+            keyboard='default'
           />
         );
       } else {
@@ -37,8 +38,8 @@ const ContactInformation = () => {
             key={element}
             id={element}
             title={element}
-            isRequired="Recomendado"
-            keyboard="phone-pad"
+            isRequired='Recomendado'
+            keyboard='phone-pad'
           />
         );
       }
