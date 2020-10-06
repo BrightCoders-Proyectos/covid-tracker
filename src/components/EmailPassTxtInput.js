@@ -11,7 +11,11 @@ const EmailPassTxtInput = (props) => {
           {props.isRequired}
         </Text>
       </View>
-      <TextInput style={styles.textInput} secureTextEntry={props.password} />
+      <TextInput
+        style={styles.textInput}
+        secureTextEntry={props.password}
+        keyboardType={props.keyboard}
+      />
     </View>
   );
 };
