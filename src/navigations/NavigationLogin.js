@@ -13,12 +13,12 @@ const NavigationLogin = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='Welcome'
+        name="Welcome"
         component={Welcome}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name='PrivacyPolicy'
+        name="PrivacyPolicy"
         options={{
           title: 'Paso 1 de 4',
           headerStyle: {
@@ -29,7 +29,7 @@ const NavigationLogin = () => {
         component={PrivacyPolicy}
       />
       <Stack.Screen
-        name='RegisterAccount'
+        name="RegisterAccount"
         options={{
           title: 'Paso 2 de 4',
           headerStyle: {
@@ -40,7 +40,7 @@ const NavigationLogin = () => {
         component={RegisterAccount}
       />
       <Stack.Screen
-        name='ConfirmEmail'
+        name="ConfirmEmail"
         options={{
           title: 'Paso 3 de 4',
           headerStyle: {
@@ -51,7 +51,7 @@ const NavigationLogin = () => {
         component={ConfirmEmail}
       />
       <Stack.Screen
-        name='ContactInformation'
+        name="ContactInformation"
         options={{
           title: 'Paso 4 de 4',
           headerStyle: {
