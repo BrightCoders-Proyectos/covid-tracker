@@ -8,6 +8,11 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
+import {
+  isEmptyInput,
+  validateEmail,
+  validatePasswords,
+} from '../utils/validators';
 import {NEXT_MESSAGE, IS_REQUIRED, REREQUEST_PASS} from '../utils/Constants';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
 import PasswordRequirements from '../components/PasswordRequirements';
@@ -23,6 +28,10 @@ const RegisterAccount = () => {
   const [color, setColor] = useState({
     emailInput: false,
     passwordInput: false,
+    firstTerm: false,
+    secondTerm: false,
+    thirdTerm: false,
+    fourthTerm: false,
   });
 
   const handleOnChange = ({value, id}) => {
@@ -32,42 +41,76 @@ const RegisterAccount = () => {
     });
   };
 
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  const passwordRegex = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,50}$/;
+  const validateOnInputs = () => {
+    const isEmailEmpty = isEmptyInput(data.email);
+    const isPasswordEmpty = isEmptyInput(data.password);
+    const isValidatePassEmpty = isEmptyInput(data.validatePassword);
 
-  const isEmptyInput = () => {
-    if (
-      data.email === '' ||
-      data.password === '' ||
-      data.validatePassword === ''
-    ) {
-      console.log('Faltan campos por llenar');
-      setColor({emailInput: true, passwordInput: true});
+    if (isEmailEmpty && isPasswordEmpty && isValidatePassEmpty) {
+      validateOnPasswords();
+      if (validateOnEmail() === true && validateOnPasswords() === true) {
+        console.log('Exito');
+      } else {
+        console.log('Sin exito');
+      }
     } else {
-      validateEmail();
-    }
-  };
-  const validateEmail = () => {
-    if (emailRegex.test(data.email)) {
-      console.log('Correo valido');
-      setColor({emailInput: false});
-      validatePasswords();
-    } else {
-      setColor({emailInput: true});
-      console.log('Correo invalido');
+      setColor({...color, emailInput: true, passwordInput: true});
     }
   };
 
-  const validatePasswords = () => {
-    if (
-      passwordRegex.test(data.password) ===
-      passwordRegex.test(data.validatePassword)
-    ) {
-      console.log('Exito!');
+  const validateOnEmail = () => {
+    const isEmailCorrect = validateEmail(data.email);
+
+    if (isEmailCorrect) {
+      setColor({...color, emailInput: false});
+      return true;
     } else {
-      console.log('La contraseña es invalida o no coinciden');
-      setColor({passwordInput: true});
+      setColor({...color, emailInput: true});
+      return false;
     }
+  };
+
+  const validateOnPasswords = () => {
+    const arePasswordsCorrect = validatePasswords(
+      data.password,
+      data.validatePassword,
+    );
+    if (arePasswordsCorrect.lengthPassword) {
+      console.log('>= 8');
+      setColor({...color, passwordInput: false});
+      if (arePasswordsCorrect.lowerCase) {
+        console.log('>= 8 y minuscula');
+        if (arePasswordsCorrect.caps) {
+          console.log('>= 8 y minuscula y mayuscula');
+          if (arePasswordsCorrect.number) {
+            console.log('>= 8 y minuscula y mayuscula y numero');
+            if (data.password === data.validatePassword) {
+              setColor({...color, passwordInput: false});
+              return true;
+            } else {
+              setColor({...color, passwordInput: true});
+              return false;
+            }
+          } else {
+            setColor({...color, passwordInput: true});
+            console.log('< 8, no minuscula, no mayusc, no num');
+          }
+        } else {
+          setColor({...color, passwordInput: true});
+          console.log('< 8, no minuscula, no mayusc');
+        }
+      } else {
+        setColor({...color, passwordInput: true});
+        console.log('< 8 no minuscula');
+      }
+    } else {
+      setColor({...color, passwordInput: true});
+      console.log(' es < 8');
+    }
+  };
+
+  const onSubmit = () => {
+    validateOnInputs();
   };
 
   return (
@@ -78,6 +121,7 @@ const RegisterAccount = () => {
           <EmailPassTxtInput
             isCorrect={color.emailInput}
             id="email"
+            keyboard="email-address"
             value={data.email}
             title="Correo electrónico"
             isRequired={IS_REQUIRED}
@@ -87,16 +131,23 @@ const RegisterAccount = () => {
           <EmailPassTxtInput
             isCorrect={color.passwordInput}
             id="password"
+            keyboard="default"
             value={data.password}
             title="Clave"
             isRequired={IS_REQUIRED}
             password={true}
             onChangeText={handleOnChange}
           />
-          <PasswordRequirements />
+          <PasswordRequirements
+            firstTerm={color.firstTerm}
+            secondTerm={color.secondTerm}
+            thirdTerm={color.thirdTerm}
+            fourthTerm={color.fourthTerm}
+          />
           <EmailPassTxtInput
             isCorrect={color.passwordInput}
             id="validatePassword"
+            keyboard="default"
             value={data.validatePassword}
             title={REREQUEST_PASS}
             isRequired={IS_REQUIRED}
@@ -106,7 +157,7 @@ const RegisterAccount = () => {
           <TouchableOpacity
             style={styles.nextBtn}
             onPress={() => {
-              isEmptyInput();
+              onSubmit();
             }}>
             <Text style={styles.nextBtnText}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>

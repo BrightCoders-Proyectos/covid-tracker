@@ -3,7 +3,7 @@ import {View, Text, TextInput, StyleSheet} from 'react-native';
 import {Colors} from '../utils/Colors';
 
 const EmailPassTxtInput = (props) => {
-  const wrong = props.isCorrect ? 'red' : Colors.textGray;
+  const wrong = props.isCorrect ? Colors.red : Colors.textGray;
   return (
     <View style={styles.inputsContainer}>
       <View style={styles.textContainer}>
@@ -16,7 +16,7 @@ const EmailPassTxtInput = (props) => {
         id={props.id}
         style={[styles.textInput, {borderColor: wrong}]}
         secureTextEntry={props.password}
-        keyboardType="email-address"
+        keyboardType={props.keyboard}
         onChangeText={(value) =>
           props.onChangeText({
             value: value,
