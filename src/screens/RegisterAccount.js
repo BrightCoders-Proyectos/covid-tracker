@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
 import {
@@ -77,34 +78,39 @@ const RegisterAccount = () => {
     );
     if (arePasswordsCorrect.lengthPassword) {
       console.log('>= 8');
-      setColor({...color, passwordInput: false});
+      setColor({...color, passwordInput: false, firsTerm: false});
       if (arePasswordsCorrect.lowerCase) {
+        setColor({...color, passwordInput: false, secondTerm: false});
+
         console.log('>= 8 y minuscula');
         if (arePasswordsCorrect.caps) {
+          setColor({...color, passwordInput: false, thirdTerm: false});
           console.log('>= 8 y minuscula y mayuscula');
           if (arePasswordsCorrect.number) {
+            setColor({...color, passwordInput: false, fourthdTerm: false});
             console.log('>= 8 y minuscula y mayuscula y numero');
             if (data.password === data.validatePassword) {
               setColor({...color, passwordInput: false});
               return true;
             } else {
               setColor({...color, passwordInput: true});
+              Alert.alert('Las contraseñas no coinciden');
               return false;
             }
-          } else {
-            setColor({...color, passwordInput: true});
+          } else {|
+            setColor({...color, passwordInput: true, fourthTerm: true});
             console.log('< 8, no minuscula, no mayusc, no num');
           }
         } else {
-          setColor({...color, passwordInput: true});
+          setColor({...color, passwordInput: true, thirdTerm: true});
           console.log('< 8, no minuscula, no mayusc');
         }
       } else {
-        setColor({...color, passwordInput: true});
+        setColor({...color, passwordInput: true, secondTerm: true});
         console.log('< 8 no minuscula');
       }
     } else {
-      setColor({...color, passwordInput: true});
+      setColor({...color, passwordInput: true, firstTerm: true});
       console.log(' es < 8');
     }
   };
