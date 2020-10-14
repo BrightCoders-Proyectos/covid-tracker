@@ -14,3 +14,6 @@ export const DESC_CONTACT_INFO =
 export const PREFERABLY_CELLPHONE = 'De preferencia un número de celular';
 export const DONT_ACCOUNT = '¿No tienes cuenta? Regístrate';
 export const FORGOT_PASSWORD = '¿Olvidaste tu clave?';
+export const LOGIN = 'Inicio de sesión';
+export const EMAIL = 'Correo electrónico';
+export const PASSWORD = 'Clave';
