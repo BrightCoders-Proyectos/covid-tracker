@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors} from '../utils/Colors';
+import {LOGIN} from '../utils/Constants';
 import SignIn from '../screens/signInScreens/SignIn';
 
 const SignInStack = createStackNavigator();
@@ -11,7 +12,7 @@ const NavigationSignIn = () => {
       <SignInStack.Screen
         name="SignIn"
         options={{
-          title: 'Inicio de sesión',
+          title: LOGIN,
           headerStyle: {
             backgroundColor: Colors.btnsColor,
           },

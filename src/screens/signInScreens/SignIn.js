@@ -12,24 +12,18 @@ import {
   DONT_ACCOUNT,
   FORGOT_PASSWORD,
 } from '../../utils/Constants';
+import {EMAIL, PASSWORD} from '../../utils/Constants';
 import EmailPassTxtInput from '../../components/EmailPassTxtInput';
 
 const SignIn = ({navigation}) => {
-  const inputType = ['Correo electrónico', 'Clave'];
+  const inputType = [EMAIL, PASSWORD];
 
   const showInputs = () => {
     const inputs = inputType.map((type) => {
-      if (type === 'Correo electrónico') {
-        return (
-          <EmailPassTxtInput
-            key={type}
-            title="Correo electrónico"
-            password={false}
-          />
-        );
-      } else {
-        return <EmailPassTxtInput key={type} title="Clave" password={true} />;
+      if (type === EMAIL) {
+        return <EmailPassTxtInput key={type} title={EMAIL} password={false} />;
       }
+      return <EmailPassTxtInput key={type} title={PASSWORD} password={true} />;
     });
     return inputs;
   };
