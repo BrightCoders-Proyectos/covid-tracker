@@ -6,7 +6,7 @@ import SignIn from '../screens/signInScreens/SignIn';
 
 const SignInStack = createStackNavigator();
 
-const NavigationSignIn = () => {
+const GoSignIn = () => {
   return (
     <SignInStack.Navigator>
       <SignInStack.Screen
@@ -24,4 +24,4 @@ const NavigationSignIn = () => {
   );
 };
 
-export {NavigationSignIn};
+export {GoSignIn};

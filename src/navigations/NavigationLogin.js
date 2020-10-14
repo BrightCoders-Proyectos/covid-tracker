@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors} from '../utils/Colors';
-import {NavigationSignIn} from './NavigationSignIn';
+import {GoSignIn} from './GoSignIn';
 import Welcome from '../screens/Welcome';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import RegisterAccount from '../screens/RegisterAccount';
@@ -63,8 +63,8 @@ const NavigationLogin = () => {
         component={ContactInformation}
       />
       <Stack.Screen
-        name="NavigationSignIn"
-        component={NavigationSignIn}
+        name="GoSignIn"
+        component={GoSignIn}
         options={{
           headerShown: false,
         }}
