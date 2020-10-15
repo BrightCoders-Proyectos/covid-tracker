@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors} from '../utils/Colors';
+import {GoSignIn} from './GoSignIn';
 import Welcome from '../screens/Welcome';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import RegisterAccount from '../screens/RegisterAccount';
@@ -60,6 +61,13 @@ const NavigationLogin = () => {
           headerTitleAlign: 'center',
         }}
         component={ContactInformation}
+      />
+      <Stack.Screen
+        name="GoSignIn"
+        component={GoSignIn}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );
