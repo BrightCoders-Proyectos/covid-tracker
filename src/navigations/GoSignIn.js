@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors} from '../utils/Colors';
-import {LOGIN, RESET_PASS_STEPS,} from '../utils/Constants';
+import {LOGIN, RESET_PASS_STEPS} from '../utils/Constants';
 import SignIn from '../screens/signInScreens/SignIn';
 import ForgotYourPassword from '../screens/signInScreens/ForgotYourPassword';
 
