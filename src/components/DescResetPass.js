@@ -12,6 +12,7 @@ const DescResetPass = () => {
 };
 
 export default DescResetPass;
+
 const styles = StyleSheet.create({
   textContainer: {
     marginTop: 25,

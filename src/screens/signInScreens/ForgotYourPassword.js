@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Colors} from '../../utils/Colors';
-import {RESET_PASSWORD} from '../../utils/Constants';
+import {RESET_PASSWORD, EMAIL} from '../../utils/Constants';
 import {TITLE_SIZE} from '../../utils/StylesConstants';
 import DescResetPass from '../../components/DescResetPass';
 import EmailPassTxtInput from '../../components/EmailPassTxtInput';
@@ -19,7 +19,7 @@ const ForgotYourPassword = () => {
         <Text style={styles.title}>{RESET_PASSWORD}</Text>
         <DescResetPass />
         <EmailPassTxtInput
-          title="Correo electrónico"
+          title={EMAIL}
           keyboard="email-address"
           password={false}
         />
