@@ -17,3 +17,11 @@ export const FORGOT_PASSWORD = '¿Olvidaste tu clave?';
 export const LOGIN = 'Inicio de sesión';
 export const EMAIL = 'Correo electrónico';
 export const PASSWORD = 'Clave';
+export const RESET_PASS_STEPS = {
+  step_one: 'Paso 1 de 2',
+  step_two: 'Paso 2 de 2',
+  step_three: 'Clave restablecida',
+};
+export const RESET_PASSWORD = 'Restablecer clave';
+export const RESET_PASS_INSTRUCTIONS =
+  'Por favor, captua la dirección de correo con la que te registraste. Te enviaremos un código para restablecer tu clave';

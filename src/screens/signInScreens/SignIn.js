@@ -48,7 +48,7 @@ const SignIn = ({navigation}) => {
         <TouchableOpacity
           style={styles.labelBtns}
           onPress={() => {
-            console.log('Hello world');
+            navigation.navigate('ForgotYourPassword');
           }}>
           <Text style={styles.textBtns}>{FORGOT_PASSWORD}</Text>
         </TouchableOpacity>
