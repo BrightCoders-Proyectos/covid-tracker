@@ -8,7 +8,6 @@ const PasswordRequirements = (props) => {
   const secondTermWrong = props.secondTerm ? Colors.red : Colors.black;
   const thirdTermWrong = props.thirdTerm ? Colors.red : Colors.black;
   const fourthTermWrong = props.fourthTerm ? Colors.red : Colors.black;
-
   return (
     <View style={styles.requirementsContainer}>
       <Text style={styles.textInfo}>La clave debe:</Text>
