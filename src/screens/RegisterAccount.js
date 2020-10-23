@@ -6,7 +6,6 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Alert,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
 import {
@@ -26,7 +25,7 @@ const initialState = {
 
 const RegisterAccount = () => {
   const [data, setData] = useState(initialState);
-  const [color, setColor] = useState({
+  const [color, setWrongTerm] = useState({
     emailInput: false,
     passwordInput: false,
     firstTerm: false,
@@ -46,73 +45,45 @@ const RegisterAccount = () => {
     const isEmailEmpty = isEmptyInput(data.email);
     const isPasswordEmpty = isEmptyInput(data.password);
     const isValidatePassEmpty = isEmptyInput(data.validatePassword);
-
+    const isUserPasswordValidation = validateOnPasswords();
     if (isEmailEmpty && isPasswordEmpty && isValidatePassEmpty) {
-      validateOnPasswords();
-      if (validateOnEmail() === true && validateOnPasswords() === true) {
+      if (validateOnEmail() === true && isUserPasswordValidation === false) {
         console.log('Exito');
       } else {
         console.log('Sin exito');
       }
     } else {
-      setColor({...color, emailInput: true, passwordInput: true});
+      setWrongTerm({...color, emailInput: true, passwordInput: true});
     }
   };
 
   const validateOnEmail = () => {
     const isEmailCorrect = validateEmail(data.email);
-
-    if (isEmailCorrect) {
-      setColor({...color, emailInput: false});
-      return true;
-    } else {
-      setColor({...color, emailInput: true});
-      return false;
-    }
+    return isEmailCorrect;
   };
 
   const validateOnPasswords = () => {
-    const arePasswordsCorrect = validatePasswords(
+    const {lengthPassword, lowerCase, caps, number} = validatePasswords(
       data.password,
       data.validatePassword,
     );
-    if (arePasswordsCorrect.lengthPassword) {
-      console.log('>= 8');
-      setColor({...color, passwordInput: false, firsTerm: false});
-      if (arePasswordsCorrect.lowerCase) {
-        setColor({...color, passwordInput: false, secondTerm: false});
+    console.log('validateOnPasswords -> lengthPassword', lengthPassword);
+    const isPasswordInputWrong =
+      !lengthPassword ||
+      !lowerCase ||
+      !caps ||
+      !number ||
+      !(data.password === data.validatePassword);
 
-        console.log('>= 8 y minuscula');
-        if (arePasswordsCorrect.caps) {
-          setColor({...color, passwordInput: false, thirdTerm: false});
-          console.log('>= 8 y minuscula y mayuscula');
-          if (arePasswordsCorrect.number) {
-            setColor({...color, passwordInput: false, fourthdTerm: false});
-            console.log('>= 8 y minuscula y mayuscula y numero');
-            if (data.password === data.validatePassword) {
-              setColor({...color, passwordInput: false});
-              return true;
-            } else {
-              setColor({...color, passwordInput: true});
-              Alert.alert('Las contraseñas no coinciden');
-              return false;
-            }
-          } else {|
-            setColor({...color, passwordInput: true, fourthTerm: true});
-            console.log('< 8, no minuscula, no mayusc, no num');
-          }
-        } else {
-          setColor({...color, passwordInput: true, thirdTerm: true});
-          console.log('< 8, no minuscula, no mayusc');
-        }
-      } else {
-        setColor({...color, passwordInput: true, secondTerm: true});
-        console.log('< 8 no minuscula');
-      }
-    } else {
-      setColor({...color, passwordInput: true, firstTerm: true});
-      console.log(' es < 8');
-    }
+    setWrongTerm((prevState) => ({
+      ...prevState,
+      passwordInput: !lengthPassword,
+      firstTerm: !lengthPassword,
+      secondTerm: !lowerCase,
+      thirdTerm: !caps,
+      fourthTerm: !number,
+    }));
+    return isPasswordInputWrong;
   };
 
   const onSubmit = () => {
