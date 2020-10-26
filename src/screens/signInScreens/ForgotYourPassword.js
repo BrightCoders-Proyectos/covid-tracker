@@ -12,7 +12,7 @@ import {TITLE_SIZE} from '../../utils/StylesConstants';
 import DescResetPass from '../../components/DescResetPass';
 import EmailPassTxtInput from '../../components/EmailPassTxtInput';
 
-const ForgotYourPassword = () => {
+const ForgotYourPassword = ({navigation}) => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView>
@@ -26,7 +26,7 @@ const ForgotYourPassword = () => {
         <TouchableOpacity
           style={styles.resetPassBtn}
           onPress={() => {
-            console.log('Hello world');
+            navigation.navigate('ResetPassConfirm');
           }}>
           <Text style={styles.resetPassTxt}>{RESET_PASSWORD}</Text>
         </TouchableOpacity>
