@@ -26,7 +26,9 @@ const ForgotYourPassword = ({navigation}) => {
         <TouchableOpacity
           style={styles.resetPassBtn}
           onPress={() => {
-            navigation.navigate('ResetPassConfirm');
+            navigation.navigate('ResetPassConfirm', {
+              usersEmail: 'sent.email@domain.com',
+            });
           }}>
           <Text style={styles.resetPassTxt}>{RESET_PASSWORD}</Text>
         </TouchableOpacity>
