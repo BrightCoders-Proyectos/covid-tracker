@@ -8,3 +8,20 @@ export const PASS_REQUIREMENTS = {
   fourthTerm: 'contener por lo menos 1 dígito',
 };
 export const REREQUEST_PASS = 'Escribe de nuevo la clave';
+export const CONTACT_INFO = 'Información de Contacto';
+export const DESC_CONTACT_INFO =
+  'Esta información servirá para ponernos en contacto contigo más rapido cuando sea necesario';
+export const PREFERABLY_CELLPHONE = 'De preferencia un número de celular';
+export const DONT_ACCOUNT = '¿No tienes cuenta? Regístrate';
+export const FORGOT_PASSWORD = '¿Olvidaste tu clave?';
+export const LOGIN = 'Inicio de sesión';
+export const EMAIL = 'Correo electrónico';
+export const PASSWORD = 'Clave';
+export const RESET_PASS_STEPS = {
+  step_one: 'Paso 1 de 2',
+  step_two: 'Paso 2 de 2',
+  step_three: 'Clave restablecida',
+};
+export const RESET_PASSWORD = 'Restablecer clave';
+export const RESET_PASS_INSTRUCTIONS =
+  'Por favor, captua la dirección de correo con la que te registraste. Te enviaremos un código para restablecer tu clave';
