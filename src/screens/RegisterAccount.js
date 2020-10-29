@@ -49,6 +49,9 @@ const RegisterAccount = () => {
     if (isEmailEmpty && isPasswordEmpty && isValidatePassEmpty) {
       if (validateOnEmail() === true && isUserPasswordValidation === false) {
         console.log('Exito');
+        navigation.navigate('ConfirmEmail', {
+          usersEmail: 'sent.email@domain.com',
+        });
       } else {
         console.log('Sin exito');
       }
@@ -90,6 +93,7 @@ const RegisterAccount = () => {
     validateOnInputs();
   };
 
+const RegisterAccount = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
