@@ -23,7 +23,7 @@ const initialState = {
   validatePassword: '',
 };
 
-const RegisterAccount = () => {
+const RegisterAccount = ({navigation}) => {
   const [data, setData] = useState(initialState);
   const [color, setWrongTerm] = useState({
     emailInput: false,
@@ -50,7 +50,7 @@ const RegisterAccount = () => {
       if (validateOnEmail() === true && isUserPasswordValidation === false) {
         console.log('Exito');
         navigation.navigate('ConfirmEmail', {
-          usersEmail: 'sent.email@domain.com',
+          usersEmail: data.email,
         });
       } else {
         console.log('Sin exito');
@@ -92,8 +92,6 @@ const RegisterAccount = () => {
   const onSubmit = () => {
     validateOnInputs();
   };
-
-const RegisterAccount = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

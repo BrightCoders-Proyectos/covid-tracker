@@ -1,4 +1,4 @@
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 export const isEmptyInput = (input) => {
   return input.length >= 1;
