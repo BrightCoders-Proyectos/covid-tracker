@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {RESET_YOUR_PASSWORD} from '../utils/Constants';
+import PropTypes from 'prop-types';
 
 const ConfirmEmailCode = (props) => {
   return (
@@ -11,6 +12,10 @@ const ConfirmEmailCode = (props) => {
       </Text>
     </View>
   );
+};
+
+ConfirmEmailCode.prototype = {
+  usersEmail: PropTypes.string.isRequired,
 };
 
 export default ConfirmEmailCode;
