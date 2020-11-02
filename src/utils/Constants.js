@@ -24,4 +24,17 @@ export const RESET_PASS_STEPS = {
 };
 export const RESET_PASSWORD = 'Restablecer clave';
 export const RESET_PASS_INSTRUCTIONS =
-  'Por favor, captua la dirección de correo con la que te registraste. Te enviaremos un código para restablecer tu clave';
+  'Por favor, captura la dirección de correo con la que te registraste. Te enviaremos un código para restablecer tu clave';
+export const RESET_YOUR_PASSWORD = {
+  title: 'Establecer nueva clave',
+  instructions: 'Por favor ingresa el código enviado a ',
+};
+export const DONT_RECEIVE_YOUR_CODE = {
+  title: '¿No recibiste el código?',
+  instructions: 'Revisa tu carpeta de correos no deseados',
+  button: 'Enviar código de nuevo',
+};
+export const NEW_PASSWORD = {
+  firstRequirement: 'Nueva clave',
+  secondRequirement: 'Escribe de nuevo la clave',
+};
