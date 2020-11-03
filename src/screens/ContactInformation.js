@@ -29,6 +29,7 @@ const ContactInformation = () => {
             title={element}
             isRequired="Recomendado"
             keyboard="default"
+            password={false}
           />
         );
       } else {
@@ -39,6 +40,7 @@ const ContactInformation = () => {
             title={element}
             isRequired="Recomendado"
             keyboard="phone-pad"
+            password={false}
           />
         );
       }

@@ -21,9 +21,23 @@ const SignIn = ({navigation}) => {
   const showInputs = () => {
     return inputType.map((type) => {
       if (type === EMAIL) {
-        return <EmailPassTxtInput key={type} title={EMAIL} password={false} />;
+        return (
+          <EmailPassTxtInput
+            key={type}
+            title={EMAIL}
+            password={false}
+            keyboard="email-address"
+          />
+        );
       }
-      return <EmailPassTxtInput key={type} title={PASSWORD} password={true} />;
+      return (
+        <EmailPassTxtInput
+          key={type}
+          title={PASSWORD}
+          password={true}
+          keyboard="default"
+        />
+      );
     });
   };
 

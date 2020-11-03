@@ -22,17 +22,20 @@ const RegisterAccount = ({navigation}) => {
             title="Correo electrónico"
             isRequired={IS_REQUIRED}
             password={false}
+            keyboard="email-address"
           />
           <EmailPassTxtInput
             title="Clave"
             isRequired={IS_REQUIRED}
             password={true}
+            keyboard="default"
           />
           <PasswordRequirements />
           <EmailPassTxtInput
             title={REREQUEST_PASS}
             isRequired={IS_REQUIRED}
             password={true}
+            keyboard="default"
           />
           <TouchableOpacity
             style={styles.nextBtn}

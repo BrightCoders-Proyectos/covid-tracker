@@ -26,7 +26,7 @@ const ResetPassConfirm = ({route}) => {
 
   const showInputsCode = () => {
     return fieldId.map((field) => {
-      return <CodeConfirmTxtInput key={field} />;
+      return <CodeConfirmTxtInput key={field} id={field} />;
     });
   };
 
@@ -60,12 +60,14 @@ const ResetPassConfirm = ({route}) => {
             title="Nueva clave"
             isRequired={IS_REQUIRED.toLocaleLowerCase()}
             password={true}
+            keyboard="default"
           />
           <PasswordRequirements />
           <EmailPassTxtInput
             title="Escribe de nueva clave"
             isRequired={IS_REQUIRED.toLocaleLowerCase()}
             password={true}
+            keyboard="default"
           />
           <TouchableOpacity style={styles.resetBtn}>
             <Text style={styles.resetBtnText}>{RESET_PASSWORD}</Text>
