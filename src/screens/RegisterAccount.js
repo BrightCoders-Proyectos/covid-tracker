@@ -8,7 +8,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
-import {NEXT_MESSAGE, IS_REQUIRED, REREQUEST_PASS} from '../utils/Constants';
+import {
+  NEXT_MESSAGE,
+  IS_REQUIRED,
+  REREQUEST_PASS,
+  EMAIL,
+  PASSWORD,
+  KEYBOARD_TYPE,
+} from '../utils/Constants';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
 import PasswordRequirements from '../components/PasswordRequirements';
 
@@ -19,23 +26,23 @@ const RegisterAccount = ({navigation}) => {
         <Text style={styles.title}>Crea tu cuenta</Text>
         <View style={styles.formContainer}>
           <EmailPassTxtInput
-            title="Correo electrónico"
+            title={EMAIL}
             isRequired={IS_REQUIRED}
             password={false}
-            keyboard="email-address"
+            keyboard={KEYBOARD_TYPE.email}
           />
           <EmailPassTxtInput
-            title="Clave"
+            title={PASSWORD}
             isRequired={IS_REQUIRED}
             password={true}
-            keyboard="default"
+            keyboard={KEYBOARD_TYPE.default}
           />
           <PasswordRequirements />
           <EmailPassTxtInput
             title={REREQUEST_PASS}
             isRequired={IS_REQUIRED}
             password={true}
-            keyboard="default"
+            keyboard={KEYBOARD_TYPE.default}
           />
           <TouchableOpacity
             style={styles.nextBtn}

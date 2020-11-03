@@ -12,6 +12,8 @@ import {
   DONT_RECEIVE_YOUR_CODE,
   IS_REQUIRED,
   RESET_PASSWORD,
+  NEW_PASSWORD,
+  KEYBOARD_TYPE,
 } from '../../utils/Constants';
 import {TITLE_SIZE, TITLE_MARGIN_VERTICAL} from '../../utils/StylesConstants';
 import {Colors} from '../../utils/Colors';
@@ -57,17 +59,17 @@ const ResetPassConfirm = ({route}) => {
         </View>
         <View style={styles.passInputsContainer}>
           <EmailPassTxtInput
-            title="Nueva clave"
+            title={NEW_PASSWORD.firstRequirement}
             isRequired={IS_REQUIRED.toLocaleLowerCase()}
             password={true}
-            keyboard="default"
+            keyboard={KEYBOARD_TYPE.default}
           />
           <PasswordRequirements />
           <EmailPassTxtInput
-            title="Escribe de nueva clave"
+            title={NEW_PASSWORD.secondRequirement}
             isRequired={IS_REQUIRED.toLocaleLowerCase()}
             password={true}
-            keyboard="default"
+            keyboard={KEYBOARD_TYPE.default}
           />
           <TouchableOpacity style={styles.resetBtn}>
             <Text style={styles.resetBtnText}>{RESET_PASSWORD}</Text>
