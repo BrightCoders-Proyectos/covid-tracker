@@ -38,3 +38,9 @@ export const NEW_PASSWORD = {
   firstRequirement: 'Nueva clave',
   secondRequirement: 'Escribe de nuevo la clave',
 };
+export const KEYBOARD_TYPE = {
+  email: 'email-address',
+  default: 'default',
+  numeric: 'number-pad',
+};
+export const RECOMMENDED = 'Recomendado';

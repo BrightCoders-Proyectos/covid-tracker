@@ -18,10 +18,10 @@ const CodeConfirmTxtInput = (props) => {
   );
 };
 
-CodeConfirmTxtInput.prototype = {
+CodeConfirmTxtInput.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChangeText: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChangeText: PropTypes.func,
 };
 
 export default CodeConfirmTxtInput;

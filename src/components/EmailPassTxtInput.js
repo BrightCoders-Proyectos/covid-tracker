@@ -21,7 +21,7 @@ const EmailPassTxtInput = (props) => {
   );
 };
 
-EmailPassTxtInput.PropTypes = {
+EmailPassTxtInput.propTypes = {
   title: PropTypes.string.isRequired,
   isRequired: PropTypes.string,
   password: PropTypes.bool.isRequired,
