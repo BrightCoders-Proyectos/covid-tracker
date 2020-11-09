@@ -22,7 +22,7 @@ import CodeConfirmTxtInput from '../../components/CodeConfirmTxtInput';
 import EmailPassTxtInput from '../../components/EmailPassTxtInput';
 import PasswordRequirements from '../../components/PasswordRequirements';
 
-const ResetPassConfirm = ({route}) => {
+const ResetPassConfirm = ({route, navigation}) => {
   const {usersEmail} = route.params;
   const fieldId = ['fieldOne', 'fieldTwo', 'fieldThree', 'fieldFour'];
 
@@ -71,7 +71,11 @@ const ResetPassConfirm = ({route}) => {
             password={true}
             keyboard={KEYBOARD_TYPE.default}
           />
-          <TouchableOpacity style={styles.resetBtn}>
+          <TouchableOpacity
+            style={styles.resetBtn}
+            onPress={() => {
+              navigation.navigate('SuccessPassReset');
+            }}>
             <Text style={styles.resetBtnText}>{RESET_PASSWORD}</Text>
           </TouchableOpacity>
         </View>

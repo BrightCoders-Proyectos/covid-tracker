@@ -44,3 +44,8 @@ export const KEYBOARD_TYPE = {
   numeric: 'number-pad',
 };
 export const RECOMMENDED = 'Recomendado';
+export const SUCCESS_PASS_RESET = {
+  header: 'Clave restablecida',
+  title: 'La nueva clave se registró',
+  button: 'Iniciar sesión',
+};
