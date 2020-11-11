@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {PASS_REQUIREMENTS} from '../utils/Constants';
 import {Colors} from '../utils/Colors';
+import PropTypes from 'prop-types';
 
 const PasswordRequirements = (props) => {
   const passwordTerms = ['firstTerm', 'secondTerm', 'thirdTerm', 'fourthTerm'];
@@ -25,6 +26,13 @@ const PasswordRequirements = (props) => {
       <View style={styles.unorderedListContainer}>{showRequirements()}</View>
     </View>
   );
+};
+
+PasswordRequirements.propTypes = {
+  firstTerm: PropTypes.bool.isRequired,
+  secondTerm: PropTypes.bool.isRequired,
+  thirdTerm: PropTypes.bool.isRequired,
+  fourthTerm: PropTypes.bool.isRequired,
 };
 
 export default PasswordRequirements;
