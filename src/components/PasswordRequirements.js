@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
   },
   textInfo: {
     fontSize: 15,
-    // color: Colors.red
   },
   unorderedListContainer: {
     paddingHorizontal: 10,

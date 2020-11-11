@@ -48,12 +48,9 @@ const RegisterAccount = ({navigation}) => {
     const isUserPasswordValidation = validateOnPasswords();
     if (isEmailEmpty && isPasswordEmpty && isValidatePassEmpty) {
       if (validateOnEmail() === true && isUserPasswordValidation === false) {
-        console.log('Exito');
         navigation.navigate('ConfirmEmail', {
           usersEmail: data.email,
         });
-      } else {
-        console.log('Sin exito');
       }
     } else {
       setWrongTerm({...color, emailInput: true, passwordInput: true});
@@ -70,7 +67,6 @@ const RegisterAccount = ({navigation}) => {
       data.password,
       data.validatePassword,
     );
-    console.log('validateOnPasswords -> lengthPassword', lengthPassword);
     const isPasswordInputWrong =
       !lengthPassword ||
       !lowerCase ||
@@ -80,6 +76,7 @@ const RegisterAccount = ({navigation}) => {
 
     setWrongTerm((prevState) => ({
       ...prevState,
+      emailInput: validateEmail(),
       passwordInput: !lengthPassword,
       firstTerm: !lengthPassword,
       secondTerm: !lowerCase,
