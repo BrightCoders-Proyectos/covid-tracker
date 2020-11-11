@@ -11,8 +11,10 @@ import {
   NEXT_MESSAGE,
   DONT_ACCOUNT,
   FORGOT_PASSWORD,
+  KEYBOARD_TYPE,
+  EMAIL,
+  PASSWORD,
 } from '../../utils/Constants';
-import {EMAIL, PASSWORD} from '../../utils/Constants';
 import EmailPassTxtInput from '../../components/EmailPassTxtInput';
 
 const SignIn = ({navigation}) => {
@@ -21,9 +23,23 @@ const SignIn = ({navigation}) => {
   const showInputs = () => {
     return inputType.map((type) => {
       if (type === EMAIL) {
-        return <EmailPassTxtInput key={type} title={EMAIL} password={false} />;
+        return (
+          <EmailPassTxtInput
+            key={type}
+            title={EMAIL}
+            password={false}
+            keyboard={KEYBOARD_TYPE.email}
+          />
+        );
       }
-      return <EmailPassTxtInput key={type} title={PASSWORD} password={true} />;
+      return (
+        <EmailPassTxtInput
+          key={type}
+          title={PASSWORD}
+          password={true}
+          keyboard={KEYBOARD_TYPE.default}
+        />
+      );
     });
   };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import {Colors} from '../utils/Colors';
+import PropTypes from 'prop-types';
 
 const EmailPassTxtInput = (props) => {
   const wrong = props.isCorrect ? Colors.red : Colors.textGray;
@@ -26,6 +27,13 @@ const EmailPassTxtInput = (props) => {
       />
     </View>
   );
+};
+
+EmailPassTxtInput.propTypes = {
+  title: PropTypes.string.isRequired,
+  isRequired: PropTypes.string,
+  password: PropTypes.bool.isRequired,
+  keyboard: PropTypes.string.isRequired,
 };
 
 export default EmailPassTxtInput;

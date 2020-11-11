@@ -11,6 +11,8 @@ import {
   NEXT_MESSAGE,
   CONTACT_INFO,
   PREFERABLY_CELLPHONE,
+  KEYBOARD_TYPE,
+  RECOMMENDED,
 } from '../utils/Constants';
 import {Colors} from '../utils/Colors';
 import DescContactInfo from '../components/DescContactInfo';
@@ -27,8 +29,9 @@ const ContactInformation = () => {
             key={element}
             id={element}
             title={element}
-            isRequired="Recomendado"
-            keyboard="default"
+            isRequired={RECOMMENDED}
+            keyboard={KEYBOARD_TYPE.default}
+            password={false}
           />
         );
       } else {
@@ -37,8 +40,9 @@ const ContactInformation = () => {
             key={element}
             id={element}
             title={element}
-            isRequired="Recomendado"
-            keyboard="phone-pad"
+            isRequired={RECOMMENDED}
+            keyboard={KEYBOARD_TYPE.numeric}
+            password={false}
           />
         );
       }

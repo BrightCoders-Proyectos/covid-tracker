@@ -1,6 +1,7 @@
 import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 import {Colors} from '../utils/Colors';
+import PropTypes from 'prop-types';
 
 const CodeConfirmTxtInput = (props) => {
   return (
@@ -15,6 +16,12 @@ const CodeConfirmTxtInput = (props) => {
       }
     />
   );
+};
+
+CodeConfirmTxtInput.propTypes = {
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChangeText: PropTypes.func,
 };
 
 export default CodeConfirmTxtInput;

@@ -13,7 +13,14 @@ import {
   validateEmail,
   validatePasswords,
 } from '../utils/validators';
-import {NEXT_MESSAGE, IS_REQUIRED, REREQUEST_PASS} from '../utils/Constants';
+import {
+  NEXT_MESSAGE,
+  IS_REQUIRED,
+  REREQUEST_PASS,
+  EMAIL,
+  PASSWORD,
+  KEYBOARD_TYPE,
+} from '../utils/Constants';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
 import PasswordRequirements from '../components/PasswordRequirements';
 
@@ -95,23 +102,23 @@ const RegisterAccount = ({navigation}) => {
         <Text style={styles.title}>Crea tu cuenta</Text>
         <View style={styles.formContainer}>
           <EmailPassTxtInput
-            isCorrect={color.emailInput}
-            id="email"
-            keyboard="email-address"
-            value={data.email}
-            title="Correo electrónico"
+            title={EMAIL}
             isRequired={IS_REQUIRED}
             password={false}
+            keyboard={KEYBOARD_TYPE.email}
+            isCorrect={color.emailInput}
+            id="email"
+            value={data.email}
             onChangeText={handleOnChange}
           />
           <EmailPassTxtInput
-            isCorrect={color.passwordInput}
-            id="password"
-            keyboard="default"
-            value={data.password}
-            title="Clave"
+            title={PASSWORD}
             isRequired={IS_REQUIRED}
             password={true}
+            keyboard={KEYBOARD_TYPE.default}
+            isCorrect={color.passwordInput}
+            id="password"
+            value={data.password}
             onChangeText={handleOnChange}
           />
           <PasswordRequirements
@@ -121,13 +128,13 @@ const RegisterAccount = ({navigation}) => {
             fourthTerm={color.fourthTerm}
           />
           <EmailPassTxtInput
-            isCorrect={color.passwordInput}
-            id="validatePassword"
-            keyboard="default"
-            value={data.validatePassword}
             title={REREQUEST_PASS}
             isRequired={IS_REQUIRED}
             password={true}
+            keyboard={KEYBOARD_TYPE.default}
+            isCorrect={color.passwordInput}
+            id="validatePassword"
+            value={data.validatePassword}
             onChangeText={handleOnChange}
           />
           <TouchableOpacity
