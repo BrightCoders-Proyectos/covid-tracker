@@ -4,18 +4,26 @@ import {Colors} from '../utils/Colors';
 import PropTypes from 'prop-types';
 
 const EmailPassTxtInput = (props) => {
+  const wrong = props.isCorrect ? Colors.red : Colors.textGray;
   return (
     <View style={styles.inputsContainer}>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>{props.title}</Text>
-        <Text style={[styles.titleText, styles.requiredText]}>
+        <Text style={[styles.titleText, styles.requiredText, {color: wrong}]}>
           {props.isRequired}
         </Text>
       </View>
       <TextInput
-        style={styles.textInput}
+        id={props.id}
+        style={[styles.textInput, {borderColor: wrong}]}
         secureTextEntry={props.password}
         keyboardType={props.keyboard}
+        onChangeText={(value) =>
+          props.onChangeText({
+            value: value,
+            id: props.id,
+          })
+        }
       />
     </View>
   );

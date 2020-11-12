@@ -1,27 +1,38 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {PASS_REQUIREMENTS} from '../utils/Constants';
+import {Colors} from '../utils/Colors';
+import PropTypes from 'prop-types';
 
-const PasswordRequirements = () => {
+const PasswordRequirements = (props) => {
+  const passwordTerms = ['firstTerm', 'secondTerm', 'thirdTerm', 'fourthTerm'];
+
+  const showRequirements = () => {
+    return passwordTerms.map((term) => {
+      const color = props[term] ? Colors.red : Colors.black;
+      const text = PASS_REQUIREMENTS[term];
+      return (
+        <Text key={term} style={[styles.textInfo, {color: color}]}>
+          <Text style={styles.dash}>- </Text>
+          {text}
+        </Text>
+      );
+    });
+  };
+
   return (
     <View style={styles.requirementsContainer}>
       <Text style={styles.textInfo}>La clave debe:</Text>
-      <View style={styles.unorderedListContainer}>
-        <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.firstTerm}
-        </Text>
-        <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.secondTerm}
-        </Text>
-        <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.thirdTerm}
-        </Text>
-        <Text style={styles.textInfo}>
-          <Text style={styles.dash}>-</Text> {PASS_REQUIREMENTS.fourthTerm}
-        </Text>
-      </View>
+      <View style={styles.unorderedListContainer}>{showRequirements()}</View>
     </View>
   );
+};
+
+PasswordRequirements.propTypes = {
+  firstTerm: PropTypes.bool.isRequired,
+  secondTerm: PropTypes.bool.isRequired,
+  thirdTerm: PropTypes.bool.isRequired,
+  fourthTerm: PropTypes.bool.isRequired,
 };
 
 export default PasswordRequirements;
