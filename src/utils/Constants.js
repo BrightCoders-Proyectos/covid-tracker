@@ -7,6 +7,7 @@ export const PASS_REQUIREMENTS = {
   thirdTerm: 'contener por lo menos 1 letra mayúscula',
   fourthTerm: 'contener por lo menos 1 dígito',
 };
+export const START = 'Iniciar';
 export const REREQUEST_PASS = 'Escribe de nuevo la clave';
 export const CONTACT_INFO = 'Información de Contacto';
 export const DESC_CONTACT_INFO =

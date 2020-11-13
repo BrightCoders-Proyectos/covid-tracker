@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
-import {REGISTER_COMPLETED_TEXT} from '../utils/Constants';
+import {REGISTER_COMPLETED_TEXT, START} from '../utils/Constants';
 
 const RegisterCompleted = () => {
   return (
@@ -38,7 +38,7 @@ const RegisterCompleted = () => {
           onPress={() => {
             console.log('Register Completed');
           }}>
-          <Text style={styles.textBtnAccept}>Iniciar</Text>
+          <Text style={styles.textBtnAccept}>{START}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
   },
-
   imageContainer: {
     flex: 1,
     alignItems: 'center',
@@ -64,11 +63,9 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
   },
-
   mainText: {
     flex: 2,
   },
-
   title: {
     fontSize: 27,
     textAlign: 'center',
@@ -80,7 +77,6 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     flex: 2,
   },
-
   paragraphs: {
     fontSize: 18,
     marginBottom: 15,
