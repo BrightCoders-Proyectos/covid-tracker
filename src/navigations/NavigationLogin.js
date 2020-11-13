@@ -7,6 +7,7 @@ import PrivacyPolicy from '../screens/PrivacyPolicy';
 import RegisterAccount from '../screens/RegisterAccount';
 import ConfirmEmail from '../screens/ConfirmEmail';
 import ContactInformation from '../screens/ContactInformation';
+import RegisterCompleted from '../screens/RegisterCompleted';
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,18 @@ const NavigationLogin = () => {
           headerTitleAlign: 'center',
         }}
         component={ContactInformation}
+      />
+      <Stack.Screen
+        name="RegisterCompleted"
+        options={{
+          title: 'Registro Completo',
+          headerLeft: null,
+          headerStyle: {
+            backgroundColor: Colors.btnsColor,
+          },
+          headerTitleAlign: 'center',
+        }}
+        component={RegisterCompleted}
       />
       <Stack.Screen
         name="GoSignIn"
