@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -24,6 +24,12 @@ import PasswordRequirements from '../../components/PasswordRequirements';
 
 const ResetPassConfirm = ({route, navigation}) => {
   const {usersEmail} = route.params;
+  const [color] = useState({
+    firstTerm: false,
+    secondTerm: false,
+    thirdTerm: false,
+    fourthTerm: false,
+  });
   const fieldId = ['fieldOne', 'fieldTwo', 'fieldThree', 'fieldFour'];
 
   const showInputsCode = () => {
@@ -64,7 +70,12 @@ const ResetPassConfirm = ({route, navigation}) => {
             password={true}
             keyboard={KEYBOARD_TYPE.default}
           />
-          <PasswordRequirements />
+          <PasswordRequirements
+            firstTerm={color.firstTerm}
+            secondTerm={color.secondTerm}
+            thirdTerm={color.thirdTerm}
+            fourthTerm={color.fourthTerm}
+          />
           <EmailPassTxtInput
             title={NEW_PASSWORD.secondRequirement}
             isRequired={IS_REQUIRED.toLocaleLowerCase()}
