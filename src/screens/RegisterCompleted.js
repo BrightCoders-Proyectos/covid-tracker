@@ -10,7 +10,7 @@ import {
 import {Colors} from '../utils/Colors';
 import {REGISTER_COMPLETED_TEXT} from '../utils/Constants';
 
-const RegisterCompleted = ({navigation}) => {
+const RegisterCompleted = () => {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.imageContainer}>
@@ -35,7 +35,9 @@ const RegisterCompleted = ({navigation}) => {
         </View>
         <TouchableOpacity
           style={styles.btnAccept}
-          onPress={() => navigation.navigate('RegisterAccount')}>
+          onPress={() => {
+            console.log('Register Completed');
+          }}>
           <Text style={styles.textBtnAccept}>Iniciar</Text>
         </TouchableOpacity>
       </View>
