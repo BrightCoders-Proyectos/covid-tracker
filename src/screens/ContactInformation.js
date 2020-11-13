@@ -18,7 +18,7 @@ import {Colors} from '../utils/Colors';
 import DescContactInfo from '../components/DescContactInfo';
 import EmailPassTxtInput from '../components/EmailPassTxtInput';
 
-const ContactInformation = () => {
+const ContactInformation = ({navigation}) => {
   const titleInput = ['Nombre', 'Teléfono'];
 
   const putInputs = () => {
@@ -58,7 +58,11 @@ const ContactInformation = () => {
         <View style={styles.formContainer}>
           {putInputs()}
           <Text style={styles.suggestText}>{PREFERABLY_CELLPHONE}</Text>
-          <TouchableOpacity style={styles.btnNext}>
+          <TouchableOpacity
+            style={styles.btnNext}
+            onPress={() => {
+              navigation.navigate('RegisterCompleted');
+            }}>
             <Text style={styles.txtNext}>{NEXT_MESSAGE}</Text>
           </TouchableOpacity>
         </View>

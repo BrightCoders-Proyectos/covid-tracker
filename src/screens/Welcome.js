@@ -48,26 +48,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
   },
-
   imageContainer: {
     flex: 1.8,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 15,
   },
-
   imageLogo: {
     height: 265,
     width: 265,
     resizeMode: 'stretch',
   },
-
   titleContainer: {
     flex: 1.8,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-
   titleText: {
     marginTop: 10,
     fontSize: 30,
@@ -77,7 +73,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-
   button: {
     backgroundColor: Colors.btnsColor,
     height: 55,
@@ -88,7 +83,6 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     borderRadius: 30,
   },
-
   buttonText: {
     color: Colors.white,
     fontSize: 25,

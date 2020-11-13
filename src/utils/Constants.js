@@ -7,6 +7,7 @@ export const PASS_REQUIREMENTS = {
   thirdTerm: 'contener por lo menos 1 letra mayúscula',
   fourthTerm: 'contener por lo menos 1 dígito',
 };
+export const START = 'Iniciar';
 export const REREQUEST_PASS = 'Escribe de nuevo la clave';
 export const CONTACT_INFO = 'Información de Contacto';
 export const DESC_CONTACT_INFO =
@@ -48,4 +49,10 @@ export const SUCCESS_PASS_RESET = {
   header: 'Clave restablecida',
   title: 'La nueva clave se registró',
   button: 'Iniciar sesión',
+};
+export const REGISTER_COMPLETED_TEXT = {
+  account_created: 'Tu cuenta se ha creado',
+  thanks:
+    'Gracias por registrarte para protejerte y contribuir a proteger a tu comunidad.',
+  together: 'Juntos podemos detener la propagación del COVID-19',
 };
