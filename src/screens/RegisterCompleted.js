@@ -8,6 +8,7 @@ import {
   Image,
 } from 'react-native';
 import {Colors} from '../utils/Colors';
+import {REGISTER_COMPLETED_TEXT} from '../utils/Constants';
 
 const RegisterCompleted = ({navigation}) => {
   return (
@@ -20,11 +21,12 @@ const RegisterCompleted = ({navigation}) => {
       </View>
       <View style={styles.succesContainer}>
         <View style={styles.mainText}>
-          <Text style={styles.title}>Tu cuenta se ha creado</Text>
+          <Text style={styles.title}>
+            {REGISTER_COMPLETED_TEXT.account_created}
+          </Text>
           <View style={styles.textContainer}>
             <Text style={styles.paragraphs}>
-              Gracias por registrarte para protegerte y a proteger a tu
-              comunidad.
+              {REGISTER_COMPLETED_TEXT.thanks}
             </Text>
             <Text style={styles.paragraphs}>
               Juntos podemos detener la propagación del COVID-19

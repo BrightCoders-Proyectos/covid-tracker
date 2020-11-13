@@ -49,3 +49,9 @@ export const SUCCESS_PASS_RESET = {
   title: 'La nueva clave se registró',
   button: 'Iniciar sesión',
 };
+export const REGISTER_COMPLETED_TEXT = {
+  account_created: 'Tu cuenta se ha creado',
+  thanks:
+    'Gracias por registrarte para protegerte y a proteger a tu comunidad.',
+  together: 'Juntos podemos detener la propagación del COVID-19',
+};
