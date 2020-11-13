@@ -29,7 +29,7 @@ const RegisterCompleted = () => {
               {REGISTER_COMPLETED_TEXT.thanks}
             </Text>
             <Text style={styles.paragraphs}>
-              Juntos podemos detener la propagación del COVID-19
+              {REGISTER_COMPLETED_TEXT.together}
             </Text>
           </View>
         </View>
